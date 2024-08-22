@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lecture 1</title>
+    
+</head>
+
+<body>
+    <h1>
+       Salman Taj
+    </h1>
+
+    <button id="btn1">
+        Change Name/Text
+    </button>
+    
+
+    <button id="btn2">
+        Change Style
+    </button>
+
+
+<!-- jQuery CDN Link -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+
+<script>
+    // This is JS Function Code
+    // function myfunction(){
+    //     document.write("This is simple function of JS.");
+    // }
+
+    // jQuery Code below
+$(document).ready(function(){
+
+    $('#btn1').click(function(){
+        $('h1').text("Taj Institute");
+    });
+
+    $('#btn2').click(function(){
+        $('h1').css(
+            {
+                color: 'darkblue',
+                backgroundColor:'cyan',
+                fontFamily:'forte',
+                fontSize:'50px'
+            }
+        )
+    })
+});
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
