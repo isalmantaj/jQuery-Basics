@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lect4</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 10px;
+            align-content: center;
+            margin-left: 30%;
+            margin-top: 10%;
+            
+        }
+        #box1, #box2 {
+            background: linear-gradient(green, yellow);
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            font-size: x-large;
+            border: 2px solid maroon;
+            position: absolute;
+        }
+
+        #box1 {
+            left: 0;
+            top: 0;
+        }
+        
+        #box2 {
+            left: 330px; /* Width of box1 + margin */
+            top: 0;
+        }
+
+        button {
+            position: absolute;
+            top: 350px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                // Get the current positions of the boxes
+                var box1Pos = $('#box1').position();
+                var box2Pos = $('#box2').position();
+                
+                // Swap positions using css() function
+                $('#box1').animate({
+                    left: box2Pos.left,
+                    top: box2Pos.top
+                }, 1000);
+
+                $('#box2').animate({
+                    left: box1Pos.left,
+                    top: box1Pos.top
+                }, 1000);
+            });
+        });
+    </script>
+    <div id="box1">
+       Box 1
+    </div>
+    <div id="box2">
+        Box 2
+    </div>
+    <button>
+        Animate
+    </button>
+</body>
+</html>

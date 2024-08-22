@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .gallery img {
+            width: 200px;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .gallery img:hover {
+            border-color: #666;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+            margin-top: 30px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 50px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Image Gallery</h1>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1719937051124-91c677bc58fc?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 1" class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1724250267025-08b545ab90dc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 2" class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1724140168197-f420ec273700?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 3" class="gallery-item">
+    </div>
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.gallery-item').click(function () {
+                var src = $(this).attr('src');
+                $('#lightbox-img').attr('src', src);
+                $('#lightbox').fadeIn();
+            });
+
+            $('.close').click(function () {
+                $('#lightbox').fadeOut();
+            });
+
+            $(window).click(function (event) {
+                if ($(event.target).is('#lightbox')) {
+                    $('#lightbox').fadeOut();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
